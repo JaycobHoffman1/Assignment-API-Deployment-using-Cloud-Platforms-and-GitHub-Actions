@@ -1,0 +1,13 @@
+name: Flask CI
+
+on:
+  push:
+    branches: [feature/tests]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
