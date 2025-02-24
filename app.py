@@ -9,3 +9,9 @@ def sum():
     num2 = data['num2']
     result = num1 + num2
     return jsonify({ 'result': result })
+
+@app.route('/sum/results/<int>', methods=['GET'])
+def get_sums_by_result():
+    data = request.get_json()
+    
+    
