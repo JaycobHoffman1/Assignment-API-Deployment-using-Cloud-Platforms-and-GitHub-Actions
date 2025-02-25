@@ -13,5 +13,9 @@ class TestSum(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(json.loads(response.data)['result'], -6)
 
+    def test_all_results(self, id):
+        response = self.app.get(f'/sum/results/{id}')
+        self.assertEqual(response.status_code, 404) # Invalid test result
+
 if __name__ == '__main__':
     unittest.main()

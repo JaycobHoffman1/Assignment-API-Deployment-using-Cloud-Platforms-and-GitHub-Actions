@@ -37,6 +37,11 @@ def find_all():
     sums = db.session.execute(db.select(Sum)).scalars()
     return sums_schema.jsonify(sums), 200
 
+@app.route('/sum/results/<int:id>', methods=['GET'])
+def find_all_results(id):
+    results = db.session.execute(db.select(Sum.result).where(Sum.result == id)).scalars()
+    return sums_schema.jsonify(results), 200
+
 @app.route('/sum', methods=['POST'])
 def sum():
     data = request.get_json()
